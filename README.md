@@ -1,1 +1,2 @@
 # Open-Source-Programmable-Load
+The Open Source Programmable Load is a PCB that is designed to test and verify operation of power supply designs and batteries. It can be programmed to sink a certain amount of current at a set range of voltages for certain periods of time. Data logging is also included for the user to collect. Designed, prototyped, and tested by Miguel Manguerra.
