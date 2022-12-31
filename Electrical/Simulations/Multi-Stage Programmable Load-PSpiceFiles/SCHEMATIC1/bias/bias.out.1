@@ -1,0 +1,463 @@
+
+**** 12/30/22 23:50:25 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Open-Source-Programmable-Load\Electrical\Simulations\multi-stage programmable load-pspicefiles\s
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\17.4.0\PSpice.ini file:
+.lib "nom_pspti.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN V_V2 0 3.3 0.1 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source MULTI-STAGE PROGRAMMABLE LOAD
+X_M1         N15133 N15247 N15072 power_nmos_p PARAMS: BVDSS=30.0 IDSS=1u
++  VGS_TH=1.5 RDSON=11.3m GFS=55 CISS=1380p COSS=235p CRSS=150p RG=1.65 VSD=1
++  QG=24n V_QG=10 TRR=10.5n
+X_U3         DAC1 N15095 5V 0 N15251 LMV321A
+V_V1         VCC 0 30
+R_R1         N15247 N15251  1k TC=0,0 
+C_C1         N15095 N15251  1n  TC=0,0 
+V_V2         DAC1 0 0Vdc
+V_V3         DAC2 0 0Vdc
+R_R2         N15072 N15095  100 TC=0,0 
+R_R3         N15072 0  22 TC=0,0 
+R_R4         VCC N15133  0.1 TC=0,0 
+V_V4         5V 0 5
+
+**** RESUMING bias.cir ****
+.END
+
+**** 12/30/22 23:50:25 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Open-Source-Programmable-Load\Electrical\Simulations\multi-stage programmable load-pspicefiles\s
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.N_MOSFET.DBT               X_U3.Xe_n.DVN   X_U3.Xi_nn.DVNF 
+          IS    1.000000E-06                  100.000000E-18  100.000000E-18 
+           N    3.366624                                                     
+          BV   30                                                            
+          TT   10.500000E-09                                                 
+         CJO  100.000000E-15                                                 
+           M     .35                                                         
+          KF   31.622780E-12  316.227800E-15 
+
+
+               X_U3.Xi_np.DVNF 
+          IS  100.000000E-18 
+          KF  316.227800E-15 
+
+
+**** 12/30/22 23:50:25 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Open-Source-Programmable-Load\Electrical\Simulations\multi-stage programmable load-pspicefiles\s
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.N_MOSFET   
+               NMOS            
+       LEVEL    1            
+           L  100.000000E-06 
+           W  100.000000E-06 
+         VTO    2            
+          KP  110            
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA    0            
+          IS   10.000000E-15 
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+          CJ    0            
+        CJSW    0            
+        CGSO    0            
+        CGDO    0            
+        CGBO    0            
+         TOX  100.000000E-09 
+          XJ    0            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    5            
+       XPART    0            
+
+
+**** 12/30/22 23:50:25 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Open-Source-Programmable-Load\Electrical\Simulations\multi-stage programmable load-pspicefiles\s
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U3.R_NOISELESS 
+  T_Measured   27            
+   T_Current -273.15         
+           R    1            
+
+
+**** 12/30/22 23:50:25 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Open-Source-Programmable-Load\Electrical\Simulations\multi-stage programmable load-pspicefiles\s
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.S_GATE_CHG_SW              X_U3.BB_SW      X_U3.ESD_SW     
+         RON     .01                           50              50            
+        ROFF  100.000000E+06                    1.000000E+12    1.000000E+12 
+         VON    2.6                              .7              .25         
+        VOFF    1.5                             0               0            
+
+
+               X_U3.OL_SW      X_U3.OR_SW      
+         RON    1.000000E-03     .01         
+        ROFF    1.000000E+09    1.000000E+09 
+         VON     .9             1.000000E-03 
+        VOFF     .8             0            
+
+
+               X_U3.S_VSWITCH_1 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U3.S_VSWITCH_2 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U3.S_VSWITCH_3 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U3.S_VSWITCH_4 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U3.S_VSWITCH_5 
+         RON     .01         
+        ROFF    1.000000E+12 
+         VON     .01         
+        VOFF    0            
+
+
+               X_U3.S_VSWITCH_6 
+         RON     .01         
+        ROFF    1.000000E+12 
+         VON     .01         
+        VOFF    0            
+
+
+               X_U3.S_VSWITCH_7 
+         RON    1.000000E-03 
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U3.S_VSWITCH_8 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+               X_U3.S_VSWITCH_9 
+         RON   50            
+        ROFF    1.000000E+12 
+         VON     .5          
+        VOFF     .1          
+
+
+Starting pseudo-transient algorithm.
+
+INFO(ORPSIM-16594): To improve Pseudotransient Convergence and Performance, set following options to relax stabilization criteria for capacitor currents and inductor voltages: PTRANABSTOL=1e-5, PTRANVNTOL=1e-4
+
+Starting pseudo-transient algorithm.
+
+ERROR -- Convergence problem in DC sweep
+
+
+  Last node voltages tried were:
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   5V)    5.0000  (  VCC)   30.0000  ( DAC1)     .1000  ( DAC2)    0.0000      
+
+(N15072)     .0592 (N15095)     .0792 (N15133)   30.0000 (N15247)    2.0700     
+
+(N15251)    2.2659 (X_M1.d)   30.0000 (X_M1.g)    2.0697 (X_M1.s)     .0592     
+
+(X_M1.ga)    2.0692                   (X_M1.gb)    2.0588                       
+
+(X_U3.21)     .1010                   (X_U3.22)     .1010                       
+
+(X_U3.23)   46.3570                   (X_U3.24)   46.1140                       
+
+(X_U3.25)  172.0700                   (X_U3.26)  172.0500                       
+
+(X_U3.27)  172.0800                   (X_U3.28)  171.9900                       
+
+(X_U3.29)    2.2659                   (X_U3.30)  172.0300                       
+
+(X_U3.31)    2.8658                   (X_U3.32)     .0206                       
+
+(X_U3.33)     .1000                   (X_U3.34)    1.1571                       
+
+(X_U3.35)    1.1571                   (X_U3.36)    1.1571                       
+
+(X_U3.37)    1.1571                   (X_U3.38)    4.0035                       
+
+(X_U3.39)    4.0035                   (X_U3.40)    1.5635                       
+
+(X_U3.41)    1.5635                   (X_U3.42)    2.7855                       
+
+(X_U3.43)    3.3257                   (X_U3.44)     .1008                       
+
+(X_U3.45)     .0792                   (X_U3.46)    1.1571                       
+
+(X_U3.47)     .8575                   (X_U3.48)    1.1571                       
+
+(X_U3.49)    2.1524                   (X_U3.50)    1.1570                       
+
+(X_U3.51)    1.1098                   (X_U3.52)   43.1570                       
+
+(X_U3.53)  -40.8430                   (X_U3.54)    1.1571                       
+
+(X_U3.55)    1.1571                   (X_U3.56)    4.0035                       
+
+(X_U3.57)    1.5635                   (X_U3.58)  181.1600                       
+
+(X_U3.59) -178.8400                   (X_U3.60)    2.7901                       
+
+(X_U3.61)    1.1571                   (X_U3.62)    1.1571                       
+
+(X_U3.63)    1.1571                   (X_U3.64)    1.1571                       
+
+(X_U3.65)    1.1571                   (X_U3.66)    1.1571                       
+
+(X_U3.67)    4.9801                   (X_U3.68)    4.9801                       
+
+(X_U3.69)     .0206                   (X_U3.70)    1.1571                       
+
+(X_U3.71)    1.1571                   (X_U3.72)    1.1571                       
+
+(X_U3.73)    1.1571                   (X_U3.74)    1.1571                       
+
+(X_U3.75)    1.5538                   (X_U3.76)    2.2659                       
+
+(X_U3.77)    2.7855                   (X_U3.78)     .1008                       
+
+(X_U3.79)    -.1000                   (X_U3.80)    5.1000                       
+
+(X_U3.81)     .1008                   (X_U3.82)    1.1571                       
+
+(X_U3.83) 1.158E-06                   (X_U3.84)    5.0000                       
+
+(X_U3.85)     .1008                   (X_U3.86)     .1008                       
+
+(X_U3.MID)    1.1571                  (X_U3.ESDn)     .0792                     
+
+(X_U3.ESDp)     .1000                 (X_U3.VCLP)    2.7835                     
+
+(X_U3.CLAMP)    2.7901                (X_U3.SW_OL)    1.1571                    
+
+(X_U3.VCC_B)    5.0000                (X_U3.VEE_B) 1.157E-06                    
+
+(X_U3.VIMON)    1.5601                (X_U3.VOUT_S)    2.2659                   
+
+(X_U3.VSENSE)    2.7901               (X_U3.Xe_n.3)    0.0000                   
+
+(X_U3.Xe_n.4)    0.0000               (X_U3.Xe_n.5)    0.0000                   
+
+(X_U3.Xe_n.6)    0.0000               (X_U3.Xe_n.7)     .8338                   
+
+(X_U3.Xe_n.8)     .8338               (X_M1.drain_a)   30.0000                  
+
+(X_M1.drain_b)   30.0000              (X_U3.VCC_CLP)    4.9801                  
+
+(X_U3.VEE_CLP)     .0206              (X_U3.Xi_nn.3)    0.0000                  
+
+(X_U3.Xi_nn.4)    0.0000              (X_U3.Xi_nn.5)    0.0000                  
+
+(X_U3.Xi_nn.6)    0.0000              (X_U3.Xi_nn.7)     .8338                  
+
+(X_U3.Xi_nn.8)     .8338              (X_U3.Xi_np.3)    0.0000                  
+
+(X_U3.Xi_np.4)    0.0000              (X_U3.Xi_np.5)    0.0000                  
+
+(X_U3.Xi_np.6)    0.0000              (X_U3.Xi_np.7)     .8338                  
+
+(X_U3.Xi_np.8)     .8338              (X_U3.CL_CLAMP)    2.7855                 
+
+(X_U3.CLAW_CLAMP)    2.7855           (X_U3.XVOS_VCM.1)     .1010           
+
+
+  These voltages failed to converge:
+
+    V(N15247)                 =     2.099V  \     2.070V
+    V(N15251)                 =     2.099V  \     2.266V
+    V(N15095)                 =    92.04mV  \    79.16mV
+    V(N15072)                 =    92.04mV  \    59.17mV
+    V(X_M1.ga)                =     2.099V  \     2.069V
+    V(X_M1.g)                 =     2.099V  \     2.070V
+    V(X_M1.s)                 =    92.07mV  \    59.18mV
+    V(X_M1.gb)                =     2.125V  \     2.059V
+    V(X_U3.ESDn)              =    92.04mV  \    79.16mV
+    V(X_U3.MID)               =     2.500V  \     1.157V
+    V(X_U3.58)                =    182.50V  \    181.16V
+    V(X_U3.59)                =   -177.50V  \   -178.84V
+    V(X_U3.52)                =     44.50V  \     43.16V
+    V(X_U3.53)                =    -39.50V  \    -40.84V
+    V(X_U3.41)                =   861.34mV  \     1.564V
+    V(X_U3.VCLP)              =     2.081V  \     2.784V
+    V(X_U3.57)                =   861.34mV  \     1.564V
+    V(X_U3.40)                =   861.34mV  \     1.564V
+    V(X_U3.39)                =     3.301V  \     4.004V
+    V(X_U3.56)                =     3.301V  \     4.004V
+    V(X_U3.38)                =     3.301V  \     4.004V
+    V(X_U3.29)                =     2.099V  \     2.266V
+    V(X_U3.VEE_B)             =    2.500uV  \    1.157uV
+    V(X_U3.23)                =   952.46mV  \     46.36V
+    V(X_U3.24)                =     1.339V  \     46.11V
+    V(X_U3.26)                =    -1.910V  \    172.05V
+    V(X_U3.25)                =    -1.911V  \    172.07V
+    V(X_U3.27)                =    -1.911V  \    172.08V
+    V(X_U3.28)                =    -1.911V  \    171.99V
+    V(X_U3.CL_CLAMP)          =     2.081V  \     2.786V
+    V(X_U3.30)                =    -1.910V  \    172.03V
+    V(X_U3.31)                =     2.456V  \     2.866V
+    V(X_U3.34)                =     2.500V  \     1.157V
+    V(X_U3.35)                =     2.500V  \     1.157V
+    V(X_U3.36)                =     2.500V  \     1.157V
+    V(X_U3.37)                =     2.500V  \     1.157V
+    V(X_U3.42)                =     2.081V  \     2.786V
+    V(X_U3.VSENSE)            =     2.081V  \     2.790V
+    V(X_U3.CLAMP)             =     2.081V  \     2.790V
+    V(X_U3.43)                =     2.500V  \     3.326V
+    V(X_U3.46)                =     2.500V  \     1.157V
+    V(X_U3.47)                =     1.853V  \   857.46mV
+    V(X_U3.48)                =     2.500V  \     1.157V
+    V(X_U3.49)                =     3.147V  \     2.152V
+    V(X_U3.50)                =     2.500V  \     1.157V
+    V(X_U3.51)                =     2.393V  \     1.110V
+    V(X_U3.60)                =     2.081V  \     2.790V
+    V(X_U3.61)                =     2.500V  \     1.157V
+    V(X_U3.62)                =     2.500V  \     1.157V
+    V(X_U3.63)                =     2.500V  \     1.157V
+    V(X_U3.64)                =     2.500V  \     1.157V
+    V(X_U3.54)                =     2.500V  \     1.157V
+    V(X_U3.55)                =     2.500V  \     1.157V
+    V(X_U3.65)                =     2.500V  \     1.157V
+    V(X_U3.66)                =     2.500V  \     1.157V
+    V(X_U3.67)                =     4.990V  \     4.980V
+    V(X_U3.68)                =     4.990V  \     4.980V
+    V(X_U3.32)                =    10.00mV  \    20.62mV
+    V(X_U3.69)                =    10.00mV  \    20.62mV
+    V(X_U3.VCC_CLP)           =     4.990V  \     4.980V
+    V(X_U3.VEE_CLP)           =    10.00mV  \    20.62mV
+    V(X_U3.70)                =     2.500V  \     1.157V
+    V(X_U3.71)                =     2.500V  \     1.157V
+    V(X_U3.72)                =     2.500V  \     1.157V
+    V(X_U3.73)                =     2.500V  \     1.157V
+    V(X_U3.SW_OL)             =     2.500V  \     1.157V
+    V(X_U3.74)                =     2.500V  \     1.157V
+    V(X_U3.75)                =     2.500V  \     1.554V
+    V(X_U3.76)                =     2.099V  \     2.266V
+    V(X_U3.VOUT_S)            =     2.099V  \     2.266V
+    V(X_U3.VIMON)             =     2.500V  \     1.560V
+    V(X_U3.77)                =     2.081V  \     2.786V
+    V(X_U3.CLAW_CLAMP)        =     2.081V  \     2.786V
+    V(X_U3.44)                =    92.04mV  \   100.84mV
+    V(X_U3.78)                =    92.04mV  \   100.84mV
+    V(X_U3.82)                =     2.500V  \     1.157V
+    V(X_U3.83)                =    2.503uV  \    1.158uV
+    V(X_U3.85)                =    92.04mV  \   100.84mV
+    V(X_U3.81)                =    92.04mV  \   100.84mV
+    V(X_U3.45)                =    92.04mV  \    79.16mV
+    V(X_U3.86)                =    92.04mV  \   100.84mV
+    V(X_U3.21)                =    92.40mV  \   101.00mV
+    V(X_U3.XVOS_VCM.1)        =   102.00mV  \   101.00mV
+
+  These supply currents failed to converge:
+
+    I(X_U3.E5)                =   400.87fA  \  -354.38nA
+    I(X_U3.E4)                =         0A  \   -19.64uA
+    I(X_U3.E1)                =    1.588pA  \    7.066uA
+    I(X_U3.Xe_n.E3)           =    5.196pA  \    7.884pA
+    I(V_V1)                   =   -4.184mA  \   -2.294mA
+    I(V_V2)                   =    6.805pA  \   153.80nA
+    I(V_V4)                   =   -80.00uA  \  -482.98uA
+    I(X_U3.V4)                =   403.43fA  \   396.68uA
+    I(X_U3.VCM_MIN)           =    2.600pA  \    1.257pA
+    I(X_U3.VCM_MAX)           =   -2.600pA  \   -3.944pA
+    I(X_U3.H1)                = 6.939e-18A  \    62.98uA
+
+  These devices failed to converge:
+    X_U3.XVOS_VCM.E1 X_U3.XVOS_VCM.E2 X_M1.M1   
+
+**** Interrupt ****
