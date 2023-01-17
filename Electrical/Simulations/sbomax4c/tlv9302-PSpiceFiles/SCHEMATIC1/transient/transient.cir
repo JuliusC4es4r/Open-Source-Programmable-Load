@@ -1,6 +1,6 @@
-** Profile: "SCHEMATIC1-bias"  [ C:\Open-Source-Programmable-Load\Electrical\Simulations\multi-stage programmable load-pspicefiles\schematic1\bias.sim ] 
+** Profile: "SCHEMATIC1-transient"  [ C:\Users\a0500607\Desktop\TLV9302_PSpice\tlv9302-pspicefiles\schematic1\transient.sim ] 
 
-** Creating circuit file "bias.cir" 
+** Creating circuit file "transient.cir" 
 ** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
 
 *Libraries: 
@@ -11,7 +11,7 @@
 .lib "nom.lib" 
 
 *Analysis directives: 
-.TRAN  0 10us 0 0.01 SKIPBP 
+.TRAN  0 1m 0 
 .OPTIONS ADVCONV
 .OPTIONS FILEMODELSEARCH
 .PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 

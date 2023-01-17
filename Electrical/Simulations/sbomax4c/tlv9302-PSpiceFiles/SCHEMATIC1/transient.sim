@@ -2,22 +2,22 @@
 
 @Settings: 0 1
 @General:
-ProfileName= "bias" 
-ProfileFile= "bias.sim" 
+ProfileName= "transient" 
+ProfileFile= "transient.sim" 
 Connectivity= "SCHEMATIC1.net" 
-NetlistFile= "bias.cir" 
-DataFile= "bias.dat" 
-OutFile= "bias.out" 
+NetlistFile= "transient.cir" 
+DataFile= "transient.dat" 
+OutFile= "transient.out" 
 Notes=
 @#$BEGINNOTES
 @#$ENDNOTES
 @End General
 @Analysis: 0 1
-+1 0 0 0 
-+0 "10us" 
++0 0 0 0 
++0 "1m" 
 +1 "" 
 +2 "0" 
-+3 "0.01" 
++3 "" 
 +4 "" 
 +5 "" 
 +6 "" 
@@ -33,17 +33,17 @@ Notes=
 @End Analysis
 @Analysis: 2 0
 +0 0
-+0 "V2" 
++0 "" 
 +1 "" 
 +2 "" 
 +3 "" 
-+4 "0" 
-+5 "3.3" 
-+6 "0.1" 
++4 "" 
++5 "" 
++6 "" 
 +7 "" 
 @End Analysis
 @Analysis: 3 0
-+1 0 0
++0 0 0
 +0 "" 
 +1 "" 
 +2 "" 
@@ -63,13 +63,13 @@ SaveFile 0 ""
 @End Analysis
 @Analysis: 5 0
 +0 0
-+0 "V2" 
++0 "" 
 +1 "" 
 +2 "" 
 +3 "" 
-+4 "0" 
-+5 "3.3" 
-+6 "0.1" 
++4 "" 
++5 "" 
++6 "" 
 +7 "" 
 @End Analysis
 @Analysis: 6 0
@@ -116,7 +116,7 @@ SaveFile 0 ""
 +2236960 0 1
 @End Analysis
 @Analysis: 13 1
-+0 1 1 0
++0 1 1 1
 @End Analysis
 @Analysis: 14 1
 +1 1 1 "*" 
@@ -126,7 +126,6 @@ SaveFile 0 ""
 @Analysis: 16 0
 +0 "0" 
 +1 "0" 
-+2 "chkpt_default, , ," 
 @End Analysis
 @Analysis: 17 0
 +0 "-1" 
